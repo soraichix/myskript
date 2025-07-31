@@ -1,0 +1,8 @@
+# Simpan hunger level saat mati
+on death:
+    set {hungerBeforeDeath::%victim's uuid%} to victim's food level
+
+# Restore hunger ke nilai tadi saat respawn
+on respawn:
+    set food level of player to {hungerBeforeDeath::%player's uuid%}
+    delete {hungerBeforeDeath::%player's uuid%}
